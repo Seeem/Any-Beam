@@ -21,7 +21,7 @@ public class SimpleAutoDetect implements NetworkEnvironmentListener {
 
 	public SimpleAutoDetect() throws Exception {
 		//The Encryption type to use
-		EncryptionType et = EncryptionType.NONE;
+		EncryptionType et = EncryptionType.AES256;
 
 		//create the settings for the NetworkEnvironment
 		//Keep in mind that the broadcast port, the EncryptionType and the password must be equal on all used devices!
@@ -30,8 +30,8 @@ public class SimpleAutoDetect implements NetworkEnvironmentListener {
 				DeviceType.TYPE_UNKNOWN,  //The device type: laptop, desktop, smartphone...
 				et, //The encryption to use
 				1338, //The port for data transmissions
-				1337, //The port for brodcasts
-				new byte[0] //The password to use
+				1400, //The port for brodcasts
+				et.getSecretKeyFromPassword("anybeamRockt1137") //The password to use
 				);
 
 		//create a new NetwworkEnvironment - this class will do all the work for us!
